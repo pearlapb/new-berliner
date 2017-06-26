@@ -1,0 +1,643 @@
+/*============= OVERALL DESIGN =============*/
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+html {
+    height:100%;
+}
+
+body {
+    background-color: #fe303a;
+    color: white;
+    width: 100%;
+    height: 100%;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/*----- FORMS & INPUTS -----*/
+input {
+    width: 30%;
+    height: 30px;
+    margin: 5px;
+    text-align: center;
+    border: none;
+}
+
+input.hidden {
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.red-border {
+    border: 1px solid #fe303a;
+}
+
+form {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    width: 100%;
+}
+input::placeholder {
+    text-align: center;
+    font-size: 12px;
+}
+input:hover {
+
+}
+input:focus {
+    outline: none;
+    box-shadow: 0 0 10px White;
+}
+
+/*----- BUTTONS -----*/
+button {
+    width: 100px;
+    height: 30px;
+    border: none;
+    margin: 10px;
+    font-size: 13px;
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px White;
+}
+
+button.white {
+    color: black;
+    background-color: white;
+}
+
+button.red {
+    background-color: #fe303a;
+    color: white;
+}
+
+button.green {
+    background-color: green;
+    color: white;
+}
+
+button.blue {
+    background-color: #1078B2;
+    color: white;
+}
+
+button.round {
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+}
+
+button.grey {
+    background-color: grey;
+    color: white;
+}
+
+button.large {
+    width: 150px;
+}
+
+.buttons-line {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+/*----- ERRORS -----*/
+.error {
+    color: black;
+}
+
+/*---- ARROWS -----*/
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right:10px solid transparent;
+  border-bottom:10px solid white;
+}
+
+/*-----------------*/
+
+.line {
+    margin: 30px;
+    width: 60%;
+    height: 1px;
+    background-color: white;
+}
+
+/*============= OFFLINE DESIGN =============*/
+
+#welcome-component {
+    text-align: center;
+}
+
+#welcome-component > .main-title {
+    text-align: center;
+    font-size: 30px;
+}
+
+#big-welcome-logo {
+    width: 40%;
+}
+
+.form-wrapper {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+.show-form-button-wrapper {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+.show-form-button-wrapper > p > a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.show-form-button {
+    text-align: center;
+    color: #202129;
+    width: 100px;
+    height: 30px;
+    border: none;
+    background-color: #FFFFFF;
+    margin: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: 0 10px #EDEEEE;
+}
+
+.show-form-button:hover {
+    cursor: pointer;
+    top: -5px;
+}
+
+.show-form-button:active {
+    box-shadow: 0 0px #EDEEEE;
+}
+
+
+
+/*============= ONLINE DESIGN =============*/
+
+#app-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+/*----- NAVBAR -----*/
+
+#navBar {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    max-height: 100px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+#search-bar-wrapper {
+    width: 250px;
+    margin:none;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+#search-bar {
+    margin: 30px 0px 0px 0px;
+    width: 250px;
+    height: 40px;
+    background-color: #fe303a;
+    border: 1px solid white;
+}
+
+#search-bar::placeholder {
+    color: white;
+}
+
+#all-results {
+    margin: 0px;
+    top: 0px;
+    text-align: center;
+    padding: 0;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.search-result {
+    flex-flow: row nowrap;
+    width: 252px;
+    height: 50px;
+    z-index: 10000000;
+    background-color: white;
+    color: black;
+    display: -webkit-inline-box;
+    border: 1px solid #fe303a;
+}
+
+.search-result > a > img {
+    width: 40px;
+    height: 40px;
+}
+
+#navBar > #navbar-logo > img {
+    float: left;
+    width:100px;
+    height: 100px;
+}
+
+#menu-in-navbar {
+    right: 0px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#menu-in-navbar > a {
+    margin: 30px 10px 10px 10px;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+}
+
+#menu-in-navbar > a:hover {
+    text-decoration: line-through black;
+}
+
+#menu-in-navbar > #dropdown {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+#menu-in-navbar > #dropdown > #pic-dropdown-btn {
+    margin: 10px;
+    float: right;
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+#menu-in-navbar > #dropdown > #pic-dropdown-btn:hover {
+    box-shadow: 0 0 10px White;
+}
+
+#menu-in-navbar > #dropdown > #dropdown-wrapper {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#menu-in-navbar > #dropdown > #dropdown-wrapper > #pic-dropdown-content {
+    padding: 5px;
+    color: black;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    text-align: center;
+    margin: 0px;
+    border: 1px solid #FE303A;
+    z-index: 1000000;
+    border: 0px;
+}
+
+#menu-in-navbar > #dropdown > #dropdown-wrapper > #pic-dropdown-content > li > a {
+    cursor: pointer;
+    color: #fe303a;
+}
+
+#menu-in-navbar > #dropdown > #dropdown-wrapper > #pic-dropdown-content > li > a:hover {
+    color: black;
+}
+
+/*----- HOMEPAGE -----*/
+
+#homepage {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#homepage > img {
+    width: 70%;
+    height: auto;
+}
+
+/*----- IMAGE UPLOAD MODAL -----*/
+
+#profile-wrapper {
+    width: 100%;
+    height: 100%;
+    bottom: 0px;
+    color: black;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#profile-wrapper > #profile-picture-wrap {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    border-radius: 200px;
+}
+
+#profile-wrapper > #profile-picture-wrap > img {
+    border-radius: 200px;
+    position:absolute;
+    width: 200px;
+    height: 200px;
+}
+
+#profile-wrapper > #profile-picture-wrap > #button-wrap  {
+    position: absolute;
+    text-align: center;
+    height: 200px;
+    width: 200px;
+    color: #fff;
+}
+
+#profile-wrapper > #profile-picture-wrap > #button-wrap > div {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    color: #fff;
+}
+
+button.single-chat-button {
+    float: right;
+    width: 50px;
+    position: sticky;
+    z-index: 1000000000000;
+    margin: 0px;
+    padding:0px;
+    background-color: #1078B2;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+}
+
+#profile-wrapper > #profile-picture-wrap > #upload-wrap {
+    border-radius: 200px;
+    position: absolute;
+    text-align: center;
+    height: 200px;
+    width: 200px;
+    background: #000;
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .2s, visibility .2s;
+}
+
+
+#profile-wrapper > #profile-picture-wrap:hover > #upload-wrap {
+    visibility: visible;
+    opacity: 0.8;
+}
+
+#upload-profile-pic {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+};
+
+#upload-profile-pic > #choose-file-label {
+    cursor: pointer;
+    height: 200px;
+    width: 200px;
+}
+
+#profile-wrapper > #profile-description {
+    background-color: white;
+    width: 70%;
+    padding: 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+};
+
+/*------ EDIT DESCRIPTION -------*/
+
+#edit-description-component {
+    width: 100%;
+}
+
+#edit-bio-wrapper {
+    width: 70%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#edit-bio-wrapper > textarea {
+    width: 100%;
+    height: 100px;
+}
+
+/*==============FRIENDS PAGE==============*/
+
+#friends-page {
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+.user-summary {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    align-items: center;
+}
+
+.user-summary > * {
+    padding: 10px;
+}
+
+.reject-friend-button {
+    width: 20px;
+    height: 20px;
+    border: 1px solid white;
+    padding: 0px;
+}
+
+ul li > a > img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+}
+
+/*==================CHATROOM=====================*/
+
+#chat-page {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+#chat-box {
+    margin-top: 20px;
+    width: 70%;
+    height: 300px;
+    overflow: scroll;
+    border: 1px solid white;
+    padding: 20px;
+}
+
+#chat-box.red {
+    border: 1px dotted #fe303a;
+}
+
+.message {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.message > .comment {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.message > .comment > * {
+    margin: 0px;
+    padding: 5px 10px 5px 10px;
+}
+
+.message > a > img {
+    width: 70px;
+    height: 70px;
+}
+
+#chat-page > textarea {
+    width: 70%;
+    padding: 20px;
+    margin: 10px;
+}
+
+/*======================================*/
+
+#single-chat {
+    color: white;
+    position: absolute;
+    top: 125%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    background-color: #1078B2;
+    width: 60vw;
+    height: 500px;
+    border: 2px solid white;
+    z-index: 92189087600000000;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+#single-chat > #chatbox {
+    border: 1px solid white;
+}
+
+#single-chat > button {
+    width: 20px;
+    height: 20px;
+    border: 1px solid white;
+    padding: 0px;
+    align-self: flex-end;
+    color: white;
+    background-color: #1078B2;
+}
+
+#single-chat > textarea {
+    border: 1px solid #1078B2;
+    width: 70%;
+    padding: 20px;
+    margin: 10px;
+}
+
+#profile-posts {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+#profile-posts > h2 {
+    color: white;
+}
+
+#profile-posting {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#profile-posting > textarea {
+    width: 50%;
+}
+
+#profile-feed {
+    width: 70%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+}
+
+#profile-feed > div.post {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 10px;
+}
+
+div.post > a > img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+
+div.post > .comment {
+    margin-left: 10px;
+    color: white;
+}
