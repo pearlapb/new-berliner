@@ -1,6 +1,7 @@
 # New Berliner
 
 New Berliner is a social network for people who are new to Berlin (like me!). It's created using React.js and also uses Socket.io.
+Check it out (and make a profile!) [here](https://new-berliner.herokuapp.com/).
 
 ### Features:
 
