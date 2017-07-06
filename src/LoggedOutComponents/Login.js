@@ -2,22 +2,6 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router';
 
-/*class WelcomeForm extends Component { //make a container component that takes two presentation components: registrtion and login! the ocntainer compnent only has functionality that two UI stuff have in common!
-    constructor(proos) {
-
-    }
-    handleChange() {
-
-    }
-    handleSubmit() {
-
-    }
-    render() {
-        var elem = someCondition ? <Login handleChange={this.handleChange}/> : <Registration handleChange={this.handleChange}/>;
-        return elem;
-    }
-}*/
-
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -37,7 +21,6 @@ class Login extends Component {
             email: this.state.email,
             pw: this.state.pw
         }
-        console.log(userLoginInfo);
         for (var key in userLoginInfo) {
             if (userLoginInfo[key] == '') {
                 this.setState({error: 'You have to fill in the entire form.'})

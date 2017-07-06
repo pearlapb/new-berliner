@@ -1,5 +1,11 @@
 var spicedPg = require('spiced-pg');
-var db = spicedPg("postgres:funkyChicken:letmein@localhost:5432/socialnetwork");
+let dbUrl;
+if (!process.env.DATABASE_URL) {
+    dbUrl = require('../config/secrets.json').dbUrl;
+} else {
+    dbUrl = process.env.DATABASE_URL;
+}
+var db = spicedPg(dbUrl);
 var dbGen = require('./dbGeneral.js');
 
 const getFriendStatus = (requestedId, session) => {

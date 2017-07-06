@@ -1,6 +1,6 @@
 var express = require('express'), router = express.Router();
-const db = require('../config/dbFriendReq.js');
-const dbProfiles = require('../config/dbGeneral.js');
+const db = require('../database/dbFriendReq.js');
+const dbProfiles = require('../database/dbGeneral.js');
 
 router.route('/getAllPendingRequests')
 

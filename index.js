@@ -7,8 +7,8 @@ const io = require('socket.io')(server);
 const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 
-const dbFriends = require('./config/dbFriendReq.js');
-const dbProfiles = require('./config/dbGeneral.js');
+const dbFriends = require('./database/dbFriendReq.js');
+const dbProfiles = require('./database/dbGeneral.js');
 
 const chalk = require('chalk');
 
@@ -60,7 +60,6 @@ app.get('/connected/:socketId', (req, res) => {
                 socketId: req.params.socketId,
                 userId: req.session.user.userId
             });
-        console.log(chalk.bgGreen('onlineUsers after new connection'), onlineUsers);
         io.sockets.emit('updateOnlineUsers', onlineUsers);
     }
 });
@@ -137,7 +136,7 @@ app.get('*', function(req, res) {
     }
 });
 
-server.listen(8080, function() {
+server.listen(process.env.PORT || 8080, function() {
     console.log(chalk.bgMagenta("I'm listening."));
 });
 
@@ -158,9 +157,5 @@ io.on('connection', function(socket) {
         lastMessages.push(data);
         io.sockets.emit('newMessage', { message: data });
     });
-
-    /*socket.on('sendPersonalMessage', function(data) {
-
-    })*/
 
 });

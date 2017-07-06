@@ -1,5 +1,6 @@
 var express = require('express'), router = express.Router();
-const db = require('../config/dbGeneral.js');
+const db = require('../database/dbGeneral.js');
+const s3 = require('../config/toS3.js');
 const path = require('path');
 
 const multer = require('multer');
@@ -23,14 +24,16 @@ router.route('/uploadProfilePicture')
 
     .post( uploader.single('file'), (req, res) => {
         if (req.file) {
-            db.saveImageUrlToDb(req.file, req.session.user).then(function(result) {
-                res.json({
-                    success: true,
-                    file: result
+            s3.makeS3Request( req, res, () => {
+                db.saveImageUrlToDb(req.file, req.session.user).then(function(result) {
+                    res.json({
+                        success: true,
+                        file: result
+                    });
+                }).catch(function(err) {
+                    console.log(err);
                 });
-            }).catch(function(err) {
-                console.log(err);
-            });
+            })
         } else {
             res.json({ error: true });
         }

@@ -1,5 +1,5 @@
 var express = require('express'), router = express.Router();
-const db = require('../config/dbGeneral.js');
+const db = require('../database/dbGeneral.js');
 const auth = require('../config/auth.js');
 
 router.route('/registerNewUser')

@@ -1,5 +1,5 @@
 var express = require('express'), router = express.Router();
-const dbProfiles = require('../config/dbGeneral.js');
+const dbProfiles = require('../database/dbGeneral.js');
 
 router.route('/getProfileSearchSummaries')
 
