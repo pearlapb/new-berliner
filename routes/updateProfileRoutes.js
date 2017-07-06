@@ -25,7 +25,7 @@ router.route('/uploadProfilePicture')
     .post( uploader.single('file'), (req, res) => {
         if (req.file) {
             s3.makeS3Request( req, res, () => {
-                db.saveImageUrlToDb(req.file, req.session.user).then(function(result) {
+                db.saveImageS3UrlToDb(req.file, req.session.user).then(function(result) {
                     res.json({
                         success: true,
                         file: result

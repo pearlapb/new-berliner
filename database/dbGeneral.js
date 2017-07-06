@@ -65,6 +65,18 @@ const getManyProfileSummaries = (arrayOfIds) => {
     });
 };
 
+const saveImageS3UrlToDb = (file, session) => {
+    return new Promise(function(resolve, reject) {
+        const q = 'UPDATE users SET profile_pic_url = $1 WHERE id = $2 RETURNING profile_pic_url;';
+        const params = [`https://s3.amazonaws.com/newberliner/${file.filename}`, session.userId];
+        db.query(q, params).then(function(result) {
+            resolve(result);
+        }).catch(function(err) {
+            reject(err);
+        });
+    });
+}
+
 const saveImageUrlToDb = (file, session) => {
     return new Promise(function(resolve, reject) {
         const q = 'UPDATE users SET profile_pic_url = $1 WHERE id = $2 RETURNING profile_pic_url;';
@@ -145,6 +157,7 @@ module.exports.addNewUserToDb = addNewUserToDb;
 module.exports.checkIfUserExists = checkIfUserExists;
 module.exports.getUserProfileInfo = getUserProfileInfo;
 module.exports.getManyProfileSummaries = getManyProfileSummaries;
+module.exports.saveImageS3UrlToDb = saveImageS3UrlToDb;
 module.exports.saveImageUrlToDb = saveImageUrlToDb;
 module.exports.updateUserBio = updateUserBio;
 module.exports.updateUserHobbies = updateUserHobbies;
